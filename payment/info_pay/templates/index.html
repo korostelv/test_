@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Заявки на оплату</title>
 </head>
 <body>
 
+    <h1>Заявки на оплату</h1>
+
+    <ul>
+    {% for appl in object_list %}
+        <li>{{ appl.summ}} {{appl.status}} {{appl.requisit}}</li>
+    {% endfor %}
+    </ul>
+
+
 </body>
 </html>
+
