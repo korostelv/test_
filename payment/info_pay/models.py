@@ -3,18 +3,18 @@ from django.db import models
 
 class Requisit(models.Model):
     Choices_pay = [
-        ('Card', "Карта"),
-        ('Payment account', "Платежный счет")
+        ('Карта', "Карта"),
+        ('Платежный счет', "Платежный счет")
     ]
     Choices_card = [
-        ('Debit', 'Дебетовая'),
-        ('Credit', 'Кредитная'),
-        ('Prepaid', 'Предоплаченная')
+        ('Дебетовая', 'Дебетовая'),
+        ('Дебетовая', 'Кредитная'),
+        ('Предоплаченная', 'Предоплаченная')
     ]
     Choices_account = [
-        ('Current', 'Текущий'),
-        ('Saving', 'Сберегательный'),
-        ('Business', 'Бизнес-счет')
+        ('Текущий', 'Текущий'),
+        ('Сберегательный', 'Сберегательный'),
+        ('Бизнес-счет', 'Бизнес-счет')
     ]
     type_payment = models.CharField(max_length=20, choices=Choices_pay, default='Card')
     last_name = models.CharField(max_length=50)
@@ -37,9 +37,9 @@ class Requisit(models.Model):
 
 class Application(models.Model):
     Choices_status = [
-        ('Awaiting payment', 'Ожидает оплаты'),
-        ('Paid', 'Оплачена'),
-        ('Canceled', 'Отменена')
+        ('Ожидает оплаты', 'Ожидает оплаты'),
+        ('Оплачена', 'Оплачена'),
+        ('Отменена', 'Отменена')
     ]
     summ = models.DecimalField(max_digits=10, decimal_places=2, blank=True)
     status = models.CharField(choices=Choices_status, max_length=20)
