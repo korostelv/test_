@@ -12,3 +12,13 @@ class ApplicationListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+
+
+class RequisitListView(ListView):
+    model = Requisit
+    paginate_by = 100
+    template_name = 'requisits.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
