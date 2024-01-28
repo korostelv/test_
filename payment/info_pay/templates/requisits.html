@@ -10,13 +10,26 @@
 
         <table>
             <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>Тип платежа</th>
+                <th>Тип карты</th>
+                <th>Тип счета</th>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+                <th>Номер телефона</th>
+                <th>Лимит</th>
             </tr>
             <tr>
-
+                {% for req in object_list %}
+                    <td>{{ req.type_payment }}</td>
+                    <td>{{ req.card_type }}</td>
+                    <td>{{ req.account_type }}</td>
+                    <td>{{ req.last_name }}</td>
+                    <td>{{ req.first_name}}</td>
+                    <td>{{ req.patronymic }}</td>
+                    <td>{{ req.phone }}</td>
+                    <td>{{ req.limit }}</td>
+                {%endfor%}
             </tr>
         </table>
 
