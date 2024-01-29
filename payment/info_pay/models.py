@@ -1,20 +1,6 @@
 from django.db import models
 
 
-class Application(models.Model):
-    Choices_status = [
-        ('Ожидает оплаты', 'Ожидает оплаты'),
-        ('Оплачена', 'Оплачена'),
-        ('Отменена', 'Отменена')
-    ]
-    summ = models.DecimalField(max_digits=10, decimal_places=2, blank=True)
-    status = models.CharField(choices=Choices_status, max_length=20)
-    requisit = models.ForeignKey('Requisit', on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f'{self.summ}'
-
-
 class Requisit(models.Model):
     Choices_pay = [
         ('Карта', "Карта"),
@@ -50,5 +36,17 @@ class Requisit(models.Model):
         return f'{self.last_name} {self.first_name}'
 
 
+class Application(models.Model):
+    Choices_status = [
+        ('Ожидает оплаты', 'Ожидает оплаты'),
+        ('Оплачена', 'Оплачена'),
+        ('Отменена', 'Отменена')
+    ]
+    summ = models.DecimalField(max_digits=10, decimal_places=2, blank=True)
+    status = models.CharField(choices=Choices_status, max_length=20)
+    requisit = models.ForeignKey('Requisit', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.summ}'
 
 
