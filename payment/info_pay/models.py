@@ -19,7 +19,7 @@ class Requisit(models.Model):
     type_payment = models.CharField(max_length=20, choices=Choices_pay, default='Card')
     last_name = models.CharField(max_length=50)
     first_name = models.CharField(max_length=50)
-    # patronymic = models.CharField(max_length=50, blank=True, null=True)
+    middle_name = models.CharField(max_length=50, blank=True, null=True)
     phone = models.CharField(max_length=12)
     limit = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     card_type = models.CharField(choices=Choices_card, max_length=20, blank=True, null=True)
