@@ -16,14 +16,14 @@
                 <th>Статус</th>
                 <th>Реквизиты</th>
             </tr>
-            <tr>
-                {% for appl in object_list %}
+            {% for appl in object_list %}
+                <tr>
                     <td>{{ appl.id }}</td>
                     <td>{{ appl.summ }}</td>
                     <td>{{ appl.status }}</td>
-                    <td><a href="">{{ appl.requisit }}</a</td>
-                {% endfor %}
-            </tr>
+                    <td><a href="">{{ appl.requisit }}</a></td>
+                </tr>
+            {% endfor %}
         </table>
 
 {% endblock %}

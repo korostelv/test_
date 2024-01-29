@@ -5,7 +5,7 @@ from .models import Requisit, Application
 class RequisitAdmin(admin.ModelAdmin):
     model = Requisit
     list_display = (
-        'id', 'type_payment', 'last_name', 'first_name', 'patronymic', 'phone', 'limit', 'card_type', 'account_type')
+        'id', 'type_payment', 'last_name', 'first_name', 'phone', 'limit', 'card_type', 'account_type')
     list_filter = ('type_payment',)
 
 

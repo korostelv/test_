@@ -15,22 +15,22 @@
                 <th>Тип счета</th>
                 <th>Фамилия</th>
                 <th>Имя</th>
-                <th>Отчество</th>
+<!--                <th>Отчество</th>-->
                 <th>Номер телефона</th>
                 <th>Лимит</th>
             </tr>
-            <tr>
-                {% for req in object_list %}
+            {% for req in object_list %}
+                <tr>
                     <td>{{ req.type_payment }}</td>
                     <td>{{ req.card_type }}</td>
                     <td>{{ req.account_type }}</td>
                     <td>{{ req.last_name }}</td>
                     <td>{{ req.first_name}}</td>
-                    <td>{{ req.patronymic }}</td>
+<!--                    <td>{{ req.patronymic }}</td>-->
                     <td>{{ req.phone }}</td>
                     <td>{{ req.limit }}</td>
-                {%endfor%}
-            </tr>
+                </tr>
+            {%endfor%}
         </table>
 
 {% endblock %}
