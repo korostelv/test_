@@ -22,8 +22,16 @@
             {% for req in object_list %}
                 <tr>
                     <td>{{ req.type_payment }}</td>
-                    <td>{{ req.card_type }}</td>
-                    <td>{{ req.account_type }}</td>
+                    {% if req.card_type is None %}
+                        <td>---</td>
+                    {% else %}
+                        <td>{{ req.card_type }}</td>
+                    {% endif %}
+                    {% if req.account_type is None %}
+                        <td>---</td>
+                    {% else %}
+                        <td>{{ req.account_type }}</td>
+                    {% endif %}
                     <td>{{ req.last_name }}</td>
                     <td>{{ req.first_name}}</td>
                     <td>{{ req.middle_name}}</td>
