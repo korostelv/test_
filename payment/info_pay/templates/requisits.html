@@ -8,12 +8,12 @@
 {% block body %}
 	<h1>Реквизиты</h1>
 
-    <form action="" method="post">
+    <form action="/sorted_requisites" method="post" id="sortForm">
         <div class="form-group my-3">
             {% csrf_token %}
             <p><b> Сортировать по:</b> </p>
 
-            <select name="" id="">
+            <select name="sorted_val" id="sorted_val" class="sort-select">
                 <option>Типу платежа</option>
                 <option>Типу карты</option>
                 <option>Типу счета</option>
