@@ -8,5 +8,5 @@ app_name = 'app_name'
 urlpatterns = [
     # path('', index, name='index'),
     path("", ApplicationListView.as_view(), name="application"),
-    path("requisits", RequisitListView.as_view(), name="requisits"),
+    path("requisits/", RequisitListView.as_view(), name="requisits"),
     ]

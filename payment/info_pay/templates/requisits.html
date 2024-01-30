@@ -8,6 +8,23 @@
 {% block body %}
 	<h1>Реквизиты</h1>
 
+    <form action="" method="post">
+        <div class="form-group my-3">
+            {% csrf_token %}
+            <p><b> Сортировать по:</b> </p>
+
+            <select name="" id="">
+                <option>Типу платежа</option>
+                <option>Типу карты</option>
+                <option>Типу счета</option>
+                <option>Фамилии</option>
+                <option>Лимиту</option>
+            </select>
+
+            <input type="submit" class="botton" value="Поиск">
+        </div>
+    </form>
+
         <table class="table table-striped table-bordered table-sm">
             <tr>
                 <th>Тип платежа</th>

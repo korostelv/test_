@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+    {% load static %}
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     {% bootstrap_messages %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/script.js' %}" ></script>
 </head>
 <body>
     <nav class=" navbar navbar-expand-lg navbar-light bg-dark">
-        <div><a class="nav-link fs-2" href="/">Заявки на оплату</a></div>
-        <div><a class="nav-link" href="/requisits">Реквизиты</a></div>
-
+        <div><a class="nav-link fs-4" href="/">Заявки на оплату</a></div>
+        <div><a class="nav-link fs-4" href="/requisits">Реквизиты</a></div>
     </nav>
 
+    <nav class="container">
     {% block body %}{% endblock %}
+    </nav>
+
+
 </body>
 </html>
 
