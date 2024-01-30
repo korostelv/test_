@@ -26,9 +26,9 @@ class Requisit(models.Model):
     account_type = models.CharField(choices=Choices_account, max_length=20, blank=True, null=True)
 
     def save(self, *args, **kwargs):
-        if self.type_payment == 'Card':
+        if self.type_payment == 'Карта':
             self.account_type = None
-        elif self.type_payment == 'Payment account':
+        elif self.type_payment == 'Платежный счет':
             self.card_type = None
         super().save(*args, **kwargs)
 
