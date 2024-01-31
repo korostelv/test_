@@ -26,7 +26,7 @@ class ApplicationListView(ListView):
 
 def requisits(request):
     object_list = Requisit.objects.all()
-    if request.method == 'POST':
+    if request.method == 'POST' and 'sorted_val' in request.POST:
         value = request.POST.get('sorted_val')
         if value == 'Типу платежа':
             object_list = Requisit.objects.order_by('type_payment')
@@ -41,6 +41,24 @@ def requisits(request):
         else:
             object_list = Requisit.objects.all()
         return render(request, 'requisits.html', {'object_list': object_list })
+
+    elif request.method == 'POST' and 'search_val' in request.POST and 'search_text' in request.POST:
+        search_value = request.POST.get('search_val')
+        search_text = request.POST.get('search_text')
+        if search_value == 'Типу платежа':
+            object_list = Requisit.objects.filter(type_payment=search_text)
+        elif search_value == 'Типу карты':
+            object_list = Requisit.objects.filter(card_type=search_text)
+        elif search_value == 'Типу счета':
+            object_list = Requisit.objects.filter(account_type=search_text)
+        elif search_value == 'Типу счета':
+            object_list = Requisit.objects.filter(account_type=search_text)
+        elif search_value == 'Фамилии':
+            object_list = Requisit.objects.filter(last_name=search_text)
+        elif search_value == 'Лимиту(до)':
+            object_list = Requisit.objects.filter(limit__lte=float(search_text))
+        return render(request, 'requisits.html', {'object_list': object_list})
+
     return render(request, 'requisits.html', {'object_list': object_list})
 
 
