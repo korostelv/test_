@@ -1,3 +1,4 @@
+from django.contrib.auth.views import LoginView
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.views.generic.list import ListView
@@ -61,6 +62,14 @@ def requisits(request):
 
     return render(request, 'requisits.html', {'object_list': object_list})
 
+
+def index(requests):
+    return render(requests, 'index.html')
+
+
+class MyLoginView(LoginView):
+    redirect_authenticated_user = True
+    template_name = 'index.html'
 
 
 
