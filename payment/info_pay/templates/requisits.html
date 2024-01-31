@@ -8,7 +8,7 @@
 {% block body %}
 	<h1>Реквизиты</h1>
 
-    <form action="/sorted_requisites" method="post" id="sortForm">
+    <form action="/requisits" method="post" id="sortForm">
         <div class="form-group my-3">
             {% csrf_token %}
             <p><b> Сортировать по:</b> </p>
@@ -21,7 +21,7 @@
                 <option>Лимиту</option>
             </select>
 
-            <input type="submit" class="botton" value="Поиск">
+            <input type="submit" class="botton" value="Сортировка">
         </div>
     </form>
 
@@ -57,27 +57,5 @@
                 </tr>
             {%endfor%}
         </table>
-
-        <div class="container">
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                {% if page_obj.has_previous %}
-                    <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
-                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
-                {% endif %}
-
-                <li class="page-item active">
-                    <span class="page-link">
-                        {{ page_obj.number }}
-                    </span>
-                </li>
-
-                {% if page_obj.has_next %}
-                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
-                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a></li>
-                {% endif %}
-            </ul>
-        </nav>
-    </div>
 
 {% endblock %}

@@ -16,26 +16,18 @@ $(document).ready(function() {
     // }
     // function getCellValue(row, index){ return $(row).children('td').eq(index).text() }
 
-    typePay = $('#type_pay');
-    var t =$('th')
-    console.log(t.eq(2))
 
-    // $.ajax({
-    //     type: "POST",
-    //     url: "/sorted/" + postID + "/",
-    //     data: {
-    //         csrfmiddlewaretoken: '{{ csrf_token }}',
-    //         post_id: postID
-    //     },
-    //     success: function(response) {
-            // if (response.rating !== undefined) {
-            //     $('.rating-count').html('<b>Рейтинг статьи: </b><span style="color: #006633;">'+response.rating+'</span>')
-            // }
-            // if (response.message !== undefined) {
-            //     $('.message-rating').text(response.message)
-            // }
-        }
+   // Функция сортировки 
+    var sortid = $('#sorted_val').val();
+    $.ajax({
+        type: 'POST',
+        url: "/requisits/",
+        dataType: 'html',
+        data: {'sorted_val': sortid}
+    })
+        $('#table').html(data);
     });
+ 
 
 
 
@@ -50,6 +42,20 @@ $(document).ready(function() {
 
 
 
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
