@@ -6,23 +6,31 @@
 
 {% block body %}
 
-<div class="center">
-	  <form method="post" class="card" novalidate>
-	  	{% csrf_token %}
-	    <h2 class="text-center">Log in to your account</h2>
-		{% for field in form %}
-	    		{{ field.label_tag }}
-	        	{{ field }}
-	        	{% if field.errors %}
-	        		<small>{{ field.errors|striptags }}</small>
-	        	{% endif %}
-		{% endfor %}
+<h1>Авторизация</h1>
 
-		<input type="submit" value="Login" class="btn btn-primary full-width">
-		<hr>
-		<p class="text-center">Forgot your password <a href="#">Reset Password</a></p>
-		<p class="text-center">Don't have a account? <a href="#">Join Now</a></p>
-	</form>
-</div>
+ <form method="post" action="{% url 'login' %}">
+ <div class="form-group">
+        {% csrf_token %}
+
+        {{ form.username.label_tag }}
+        {{ form.username }}
+
+        <br>
+
+        {{ form.password.label_tag }}
+        {{ form.password }}
+
+        <br>
+
+        <input type="submit" value="Login">
+ </div>
+    </form>
+
+    <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+
+
+
+
+
 
 {% endblock %}

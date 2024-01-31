@@ -1,6 +1,8 @@
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
 from django.core.paginator import Paginator
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from .models import Application, Requisit
 
@@ -67,9 +69,13 @@ def index(requests):
     return render(requests, 'index.html')
 
 
-class MyLoginView(LoginView):
-    redirect_authenticated_user = True
-    template_name = 'index.html'
+# class LoginView(LoginView):
+#     form_class = AuthenticationForm
+#     template_name = 'index.html'
+#     extra_context = {}
+#
+#     def get_success_url(self):
+#         return reverse_lazy('application')
 
 
 
