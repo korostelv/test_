@@ -65,8 +65,8 @@ def requisits(request):
     return render(request, 'requisits.html', {'object_list': object_list})
 
 
-def index(requests):
-    return render(requests, 'index.html')
+# def index(requests):
+#     return render(requests, 'index.html')
 
 
 # class LoginView(LoginView):

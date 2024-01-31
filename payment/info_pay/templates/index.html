@@ -1,32 +1,32 @@
-{% extends "base.html" %}
+<!--{% extends "base.html" %}-->
 
-{% block title %}
-    Авторизация
-{% endblock %}
+<!--{% block title %}-->
+<!--    Авторизация-->
+<!--{% endblock %}-->
 
-{% block body %}
+<!--{% block body %}-->
 
-<h1>Авторизация</h1>
+<!--<h1>Авторизация</h1>-->
 
- <form method="post" action="{% url 'login' %}">
- <div class="form-group">
-        {% csrf_token %}
+<!-- <form method="post" action="{% url 'login' %}">-->
+<!-- <div class="form-group">-->
+<!--        {% csrf_token %}-->
 
-        {{ form.username.label_tag }}
-        {{ form.username }}
+<!--        {{ form.username.label_tag }}-->
+<!--        {{ form.username }}-->
 
-        <br>
+<!--        <br>-->
 
-        {{ form.password.label_tag }}
-        {{ form.password }}
+<!--        {{ form.password.label_tag }}-->
+<!--        {{ form.password }}-->
 
-        <br>
+<!--        <br>-->
 
-        <input type="submit" value="Login">
- </div>
-    </form>
+<!--        <input type="submit" value="Login">-->
+<!-- </div>-->
+<!--    </form>-->
 
-    <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+<!--    <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>-->
 
 
 
