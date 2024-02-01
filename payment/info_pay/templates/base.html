@@ -13,9 +13,15 @@
 </head>
 <body>
     <nav class=" navbar navbar-expand-lg navbar-light bg-dark">
-        <div><a class="nav-link fs-4" href="/application">Заявки на оплату</a></div>
+
+
         <div><a class="nav-link fs-4" href="/requisits">Реквизиты</a></div>
-        <div><a class="nav-link fs-4" href="/">Авторизация</a></div>
+        {% if request.user.is_authenticated %}
+            <div><a class="nav-link fs-4" href="/application">Заявки на оплату</a></div>
+            <div><a class="nav-link fs-4" href="/logout">{{request.user.username }} / Выход</a></div>
+        {% else %}
+            <div><a class="nav-link fs-4" href="/">Авторизация</a></div>
+        {% endif %}
     </nav>
 
     <nav class="container">

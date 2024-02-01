@@ -5,29 +5,25 @@
 {% endblock %}
 
 {% block body %}
-
+<nav class="container">
 <h1>Авторизация</h1>
 
  <form method="post" action="">
         {% csrf_token %}
-
         {{ form.username.label_tag }}
         {{ form.username }}
-
         <br>
-
         {{ form.password.label_tag }}
         {{ form.password }}
-
         <br>
+        <input type="submit" value="Войти">
 
-        <input type="submit" value="Login">
+
+
     </form>
-
-
-
-
-
-</form>
+<div>
+    <a class="" href="/requisits">Продолжить без авторизации</a>
+</div>
+</nav>
 
 {% endblock %}
