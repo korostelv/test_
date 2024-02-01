@@ -1,10 +1,8 @@
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.views import LoginView
-from django.core.paginator import Paginator
+
 from django.shortcuts import render
-from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from .models import Application, Requisit
+from django.contrib.auth.models import User
 
 
 class ApplicationListView(ListView):
@@ -15,16 +13,6 @@ class ApplicationListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
-
-
-# class RequisitListView(ListView):
-#     model = Requisit
-#     paginate_by = 50
-#     template_name = 'requisits.html'
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         return context
 
 
 def requisits(request):
@@ -65,17 +53,9 @@ def requisits(request):
     return render(request, 'requisits.html', {'object_list': object_list})
 
 
-# def index(requests):
-#     return render(requests, 'index.html')
-
-
-# class LoginView(LoginView):
-#     form_class = AuthenticationForm
-#     template_name = 'index.html'
-#     extra_context = {}
-#
-#     def get_success_url(self):
-#         return reverse_lazy('application')
+class UserListView(ListView):
+    model = User
+    template_name = 'users.html'
 
 
 

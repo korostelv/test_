@@ -5,25 +5,25 @@
 {% endblock %}
 
 {% block body %}
-<nav class="container">
-<h1>Авторизация</h1>
+<div class="container col-md-6">
+    <h1>Авторизация</h1>
 
- <form method="post" action="">
+    <form class="" method="post" action="">
         {% csrf_token %}
-        {{ form.username.label_tag }}
-        {{ form.username }}
-        <br>
-        {{ form.password.label_tag }}
-        {{ form.password }}
-        <br>
-        <input type="submit" value="Войти">
 
+        {% for f in form %}
+                <div class="form-group col-sm-6 col-lg-4 a2">
+                    <p><label for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+                    <div class="form-error">{{ f.errors }}</div>
+                </div>
+        {% endfor %}
 
-
+        <input type="submit" class="btn btn-primary" value="Войти">
     </form>
-<div>
-    <a class="" href="/requisits">Продолжить без авторизации</a>
+    <div>
+        <a class="" href="/requisits">Продолжить без авторизации</a>
+    </div>
+
 </div>
-</nav>
 
 {% endblock %}

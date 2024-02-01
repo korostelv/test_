@@ -17,7 +17,10 @@
 
         <div><a class="nav-link fs-4" href="/requisits">Реквизиты</a></div>
         {% if request.user.is_authenticated %}
-            <div><a class="nav-link fs-4" href="/application">Заявки на оплату</a></div>
+            {% if request.user.is_superuser %}
+                <div><a class="nav-link fs-4" href="/application">Заявки на оплату</a></div>
+                <div><a class="nav-link fs-4" href="/users">Список пользователей</a></div>
+            {% endif %}
             <div><a class="nav-link fs-4" href="/logout">{{request.user.username }} / Выход</a></div>
         {% else %}
             <div><a class="nav-link fs-4" href="/">Авторизация</a></div>
