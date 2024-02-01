@@ -2,12 +2,6 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from .views import ApplicationListView, requisits, UserListView, ShowReqView, ApplicationAPIView, RequisitAPIView
 
-# from rest_framework import routers
-# from .api import ApplicationViewSet, RequisitViewSet
-#
-# router = routers.DefaultRouter()
-# router.register('api/application', ApplicationViewSet, 'application')
-# router.register('api/requisit', RequisitViewSet, 'requisit')
 
 app_name = 'info_pay'
 
