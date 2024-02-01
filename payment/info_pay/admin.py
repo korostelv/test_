@@ -11,7 +11,7 @@ class RequisitAdmin(admin.ModelAdmin):
 
 class ApplicationAdmin(admin.ModelAdmin):
     model = Application
-    list_display = ('id', 'summ', 'status', 'requisit')
+    list_display = ('id', 'summ', 'status', 'requisit','time_create', 'time_update')
     list_filter = ('summ', 'status', 'requisit',)
 
 

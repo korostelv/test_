@@ -1,13 +1,18 @@
 from django.urls import path
+from django.contrib.auth import views as auth_views
+from .views import ApplicationListView, requisits, UserListView, ShowReqView, ApplicationAPIView, RequisitAPIView
 
-from .views import ApplicationListView, RequisitListView, sorted_requisites
 
-app_name = 'app_name'
+app_name = 'info_pay'
 
 
 urlpatterns = [
-    # path('', index, name='index'),
-    path("", ApplicationListView.as_view(), name="application"),
-    path("requisits/", RequisitListView.as_view(), name="requisits"),
-    path('sorted_requisites', sorted_requisites, name='sorted_requisites'),
+    path('', requisits, name='requisits'),
+    path("application", ApplicationListView.as_view(), name="application"),
+    path('login', auth_views.LoginView.as_view(), name='login'),
+    path('logout', auth_views.LogoutView.as_view(), name='logout'),
+    path('users', UserListView.as_view(), name='users'),
+    path('show_req/<int:pk>/', ShowReqView.as_view(), name='show_req'),
+    path('api/application/', ApplicationAPIView.as_view()),
+    path('api/requisit/', RequisitAPIView.as_view()),
     ]

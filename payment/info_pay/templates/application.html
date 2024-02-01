@@ -14,13 +14,17 @@
                 <th>Сумма</th>
                 <th>Статус</th>
                 <th>Реквизиты</th>
+                <th>Дата создания</th>
+                <th>Дата изменетия</th>
             </tr>
             {% for appl in object_list %}
                 <tr>
                     <td>{{ appl.id }}</td>
                     <td>{{ appl.summ }}</td>
                     <td>{{ appl.status }}</td>
-                    <td><a href="">{{ appl.requisit }}</a></td>
+                    <td><a href="/show_req/{{appl.requisit.pk}}">{{ appl.requisit }}</a></td>
+                    <td>{{ appl.time_create}}</td>
+                    <td>{{ appl.time_update }}</td>
                 </tr>
             {% endfor %}
         </table>
