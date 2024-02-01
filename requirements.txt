@@ -10,3 +10,5 @@ six==1.16.0
 soupsieve==2.5
 sqlparse==0.4.4
 toposort==1.10
+djangorestframework==3.14.0
+ipython==8.20.0

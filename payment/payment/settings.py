@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'info_pay',
     'bootstrap5',
     'django_seed',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
