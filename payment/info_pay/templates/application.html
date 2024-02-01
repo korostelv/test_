@@ -20,7 +20,7 @@
                     <td>{{ appl.id }}</td>
                     <td>{{ appl.summ }}</td>
                     <td>{{ appl.status }}</td>
-                    <td><a href="">{{ appl.requisit }}</a></td>
+                    <td><a href="/show_req/{{appl.requisit.pk}}">{{ appl.requisit }}</a></td>
                 </tr>
             {% endfor %}
         </table>

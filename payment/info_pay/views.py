@@ -1,5 +1,6 @@
 
 from django.shortcuts import render
+from django.views.generic import DetailView
 from django.views.generic.list import ListView
 from .models import Application, Requisit
 from django.contrib.auth.models import User
@@ -31,7 +32,7 @@ def requisits(request):
             object_list = Requisit.objects.order_by('limit')
         else:
             object_list = Requisit.objects.all()
-        return render(request, 'requisits.html', {'object_list': object_list })
+        return render(request, 'index.html', {'object_list': object_list })
 
     elif request.method == 'POST' and 'search_val' in request.POST and 'search_text' in request.POST:
         search_value = request.POST.get('search_val')
@@ -48,14 +49,19 @@ def requisits(request):
             object_list = Requisit.objects.filter(last_name=search_text)
         elif search_value == 'Лимиту(до)':
             object_list = Requisit.objects.filter(limit__lte=float(search_text))
-        return render(request, 'requisits.html', {'object_list': object_list})
+        return render(request, 'index.html', {'object_list': object_list})
 
-    return render(request, 'requisits.html', {'object_list': object_list})
+    return render(request, 'index.html', {'object_list': object_list})
 
 
 class UserListView(ListView):
     model = User
     template_name = 'users.html'
+
+
+class ShowReqView(DetailView):
+    model = Requisit
+    template_name = 'show_req.html'
 
 
 

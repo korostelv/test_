@@ -1,36 +1,84 @@
-<!--{% extends "base.html" %}-->
 
-<!--{% block title %}-->
-<!--    Авторизация-->
-<!--{% endblock %}-->
+{% extends "base.html" %}
 
-<!--{% block body %}-->
+{% block title %}
+    Реквизиты
+{% endblock %}
 
-<!--<h1>Авторизация</h1>-->
+{% block body %}
+	<h1>Реквизиты</h1>
+    {% if request.user.is_authenticated %}
+    <div class="row">
+        <div class="col">
+        <form action="/" method="post" id="sortForm">
+            <div class="form-group my-3">
+                {% csrf_token %}
+                <p><b> Сортировать по:</b> </p>
+                <select name="sorted_val" id="sorted_val" class="sort-select">
+                    <option>Типу платежа</option>
+                    <option>Типу карты</option>
+                    <option>Типу счета</option>
+                    <option>Фамилии</option>
+                    <option>Лимиту</option>
+                </select>
+                <input type="submit" class="botton" value="Сортировка">
+            </div>
+        </form>
+        </div>
 
-<!-- <form method="post" action="{% url 'login' %}">-->
-<!-- <div class="form-group">-->
-<!--        {% csrf_token %}-->
+<div class="col">
+        <form action="/" method="post" id="searchForm">
+            <div class="form-group my-3">
+                {% csrf_token %}
+                <p><b> Искать по:</b> </p>
+                <select name="search_val" id="search_val" class="sort-select">
+                    <option>Типу платежа</option>
+                    <option>Типу карты</option>
+                    <option>Типу счета</option>
+                    <option>Фамилии</option>
+                    <option>Лимиту(до)</option>
+                </select>
+                <input type="text" name="search_text" id="search_text">
+                <input type="submit" class="botton" value="Поиск">
+            </div>
+        </form>
+    </div>
+    </div>
+{% else %}
+<p>Для возможности поиска и сортировки реквизитов<a  href="/login"> войдите в аккаунт</a></p>
+{% endif %}
 
-<!--        {{ form.username.label_tag }}-->
-<!--        {{ form.username }}-->
-
-<!--        <br>-->
-
-<!--        {{ form.password.label_tag }}-->
-<!--        {{ form.password }}-->
-
-<!--        <br>-->
-
-<!--        <input type="submit" value="Login">-->
-<!-- </div>-->
-<!--    </form>-->
-
-<!--    <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>-->
-
-
-
-
-
+        <table id="table" class="table table-striped table-bordered table-sm">
+            <tr>
+                <th id="type_pay">Тип платежа</th>
+                <th>Тип карты</th>
+                <th>Тип счета</th>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+                <th>Номер телефона</th>
+                <th>Лимит</th>
+            </tr>
+            {% for req in object_list %}
+                <tr>
+                    <td>{{ req.type_payment }}</td>
+                    {% if req.card_type is None %}
+                        <td>---</td>
+                    {% else %}
+                        <td>{{ req.card_type }}</td>
+                    {% endif %}
+                    {% if req.account_type is None %}
+                        <td>---</td>
+                    {% else %}
+                        <td>{{ req.account_type }}</td>
+                    {% endif %}
+                    <td>{{ req.last_name }}</td>
+                    <td>{{ req.first_name}}</td>
+                    <td>{{ req.middle_name}}</td>
+                    <td>{{ req.phone }}</td>
+                    <td>{{ req.limit }}</td>
+                </tr>
+            {%endfor%}
+        </table>
 
 {% endblock %}
