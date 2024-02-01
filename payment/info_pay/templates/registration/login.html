@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Авторизация
+{% endblock %}
+
+{% block body %}
+<div class="container col-md-6">
+    <h1>Авторизация</h1>
+
+    <form class="" method="post" action="">
+        {% csrf_token %}
+
+        {% for f in form %}
+                <div class="form-group col-sm-6 col-lg-4 a2">
+                    <p><label for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+                    <div class="form-error">{{ f.errors }}</div>
+                </div>
+        {% endfor %}
+
+        <input type="submit" class="btn btn-primary" value="Войти">
+    </form>
+    <div>
+        <a class="" href="/">Продолжить без авторизации</a>
+    </div>
+
+</div>
+
+{% endblock %}
