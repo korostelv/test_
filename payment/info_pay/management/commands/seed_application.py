@@ -34,10 +34,11 @@ class Command(BaseCommand):
             requisit = random.choice(Requisit.objects.all())
             summ = self.generate_random_summ(requisit)
             time_update = timezone.now()
+            random_status = random.choice([status[0] for status in Application.Choices_status])
 
             while summ > requisit.limit:
                 summ = self.generate_random_summ(requisit)
 
-            application = Application(requisit=requisit, summ=summ, time_update=time_update)
+            application = Application(requisit=requisit, summ=summ, time_update=time_update, status=random_status)
             application.save()
 
