@@ -12,3 +12,4 @@ class RequisitSerializer(serializers.ModelSerializer):
     class Meta:
         model = Requisit
         fields = '__all__'
+

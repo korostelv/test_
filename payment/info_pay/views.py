@@ -2,6 +2,8 @@
 from django.shortcuts import render
 from django.views.generic import DetailView
 from django.views.generic.list import ListView
+
+
 from .models import Application, Requisit
 from django.contrib.auth.models import User
 
@@ -75,3 +77,7 @@ class ApplicationAPIView(generics.ListAPIView):
 class RequisitAPIView(generics.ListAPIView):
     queryset = Requisit.objects.all()
     serializer_class = RequisitSerializer
+
+
+
+

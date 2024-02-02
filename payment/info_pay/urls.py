@@ -2,7 +2,6 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from .views import ApplicationListView, requisits, UserListView, ShowReqView, ApplicationAPIView, RequisitAPIView
 
-
 app_name = 'info_pay'
 
 
