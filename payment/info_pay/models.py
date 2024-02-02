@@ -1,4 +1,7 @@
+from django.core.exceptions import ValidationError
 from django.db import models
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 from django.utils import timezone
 
 class Requisit(models.Model):
@@ -50,5 +53,13 @@ class Application(models.Model):
 
     def __str__(self):
         return f'{self.summ}'
+
+
+@receiver(pre_save, sender=Application)
+def sum(sender, instance, **kwargs):
+    if instance.summ > instance.requisit.limit:
+        raise ValidationError('Сумма не может превышать лимит реквизита')
+
+
 
 
