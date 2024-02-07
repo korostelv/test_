@@ -1,9 +1,14 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
+from rest_framework import routers
+
 from .views import ApplicationListView, requisits, UserListView, ShowReqView, ApplicationAPIView, RequisitAPIView
 
 app_name = 'info_pay'
 
+router = routers.DefaultRouter()
+router.register('api/application', ApplicationAPIView)
+router.register('api/requisit', RequisitAPIView)
 
 urlpatterns = [
     path('', requisits, name='requisits'),
@@ -12,6 +17,6 @@ urlpatterns = [
     path('logout', auth_views.LogoutView.as_view(), name='logout'),
     path('users', UserListView.as_view(), name='users'),
     path('show_req/<int:pk>/', ShowReqView.as_view(), name='show_req'),
-    path('api/application/', ApplicationAPIView.as_view()),
-    path('api/requisit/', RequisitAPIView.as_view()),
     ]
+
+urlpatterns += router.urls

@@ -7,7 +7,7 @@ from django.views.generic.list import ListView
 from .models import Application, Requisit
 from django.contrib.auth.models import User
 
-from rest_framework import generics
+from rest_framework import viewsets
 from .serializers import ApplicationSerializer, RequisitSerializer
 
 
@@ -69,12 +69,12 @@ class ShowReqView(DetailView):
     template_name = 'show_req.html'
 
 
-class ApplicationAPIView(generics.ListAPIView):
+class ApplicationAPIView(viewsets.ModelViewSet):
     queryset = Application.objects.all()
     serializer_class = ApplicationSerializer
 
 
-class RequisitAPIView(generics.ListAPIView):
+class RequisitAPIView(viewsets.ModelViewSet):
     queryset = Requisit.objects.all()
     serializer_class = RequisitSerializer
 
